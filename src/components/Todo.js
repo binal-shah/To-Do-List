@@ -24,25 +24,26 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
 
   return todos.map((todo, index) => (
     <div
-      className={todo.isComplete ? 'todo-row complete' : 'todo-row'}
+      className={todo.status ? 'todo-row complete' : 'todo-row'}
       key={index}
     >
       <div key={todo.id} onClick={() => completeTodo(todo.id)}>
-        {todo.text}
+        {todo.name}
       </div>
       <div className='icons'>
       <BsFillCheckCircleFill
           onClick={() => completeTodo(todo.id)}
           className='delete-icon'
         />
+        
         <RiCloseCircleLine
           onClick={() => removeTodo(todo.id)}
           className='delete-icon'
         />
-        <TiEdit
+        {/* <TiEdit
           onClick={() => setEdit({ id: todo.id, value: todo.text })}
           className='edit-icon'
-        />
+        /> */}
       </div>
     </div>
   ));
